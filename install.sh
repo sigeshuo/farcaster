@@ -119,7 +119,8 @@ chmod +x ${FARCASTER_COMMAND_FILE_PATH}
 
 function __download_hubble() {
     echo "⏳ 正在下载 hubble 脚本文件 ..."
-    curl -s -o "${HUBBLE_FILE_PATH}" "https://raw.githubusercontent.com/farcasterxyz/hub-monorepo/@latest/scripts/hubble.sh?timestamp=$(date +%s)"
+#    curl -s -o "${HUBBLE_FILE_PATH}" "https://raw.githubusercontent.com/sigeshuo1/hub-monorepo/@latest/scripts/hubble.sh?timestamp=$(date +%s)"
+    curl -s -o "${HUBBLE_FILE_PATH}" "https://raw.githubusercontent.com/sigeshuo1/hub-monorepo/main/scripts/hubble.sh?timestamp=$(date +%s)"
     if [ $? -eq 0 ]; then
       echo "✅ 文件已成功下载到 ${HUBBLE_FILE_PATH}！"
       chmod +x "${HUBBLE_FILE_PATH}"
