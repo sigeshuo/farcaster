@@ -7,6 +7,7 @@ FARCASTER_COMMAND_FILE_PATH="/usr/local/bin/farcaster"
 HUB_OPERATOR_FID="$1"
 ETH_MAINNET_RPC_URL="$2"
 OPTIMISM_L2_RPC_URL="$3"
+MEM_RESERVATION="$4"
 
 function __tips() {
     echo "------------------------------------------------------------------------------"
@@ -42,7 +43,7 @@ function __uninstall() {
 
 function __help() {
     echo "✨ 后续命令用法："
-    echo "⬆️  升级：farcaster upgrade"
+    echo "⬆️ 升级：farcaster upgrade"
     echo "📜 查看日志：farcaster logs"
     echo "🚀 启动 Hubble 和 Grafana 面板：farcaster up"
     echo "🛑 停止 Hubble 和 Grafana 面板：farcaster down"
@@ -85,6 +86,12 @@ function __env() {
         exit 1
     fi
 
+    if [[ -z "$MEM_RESERVATION" ]]; then
+        MEM_RESERVATION=16
+        echo "⚠️ 您未指定 MEM_RESERVATION 内存大小，默认已为您设置：${MEM_RESERVATION}GB"
+        exit 1
+    fi
+
     if [[ -f "${HUBBLE_ENV_FILE_PATH}" ]]; then
        echo "⏳ 检查到环境配置文件：${HUBBLE_ENV_FILE_PATH}，正在删除 ..."
        rm -rf "${HUBBLE_ENV_FILE_PATH}"
@@ -93,11 +100,13 @@ function __env() {
     echo "HUB_OPERATOR_FID=${HUB_OPERATOR_FID}" >> "${HUBBLE_ENV_FILE_PATH}"
     echo "ETH_MAINNET_RPC_URL=${ETH_MAINNET_RPC_URL}" >> "${HUBBLE_ENV_FILE_PATH}"
     echo "OPTIMISM_L2_RPC_URL=${OPTIMISM_L2_RPC_URL}" >> "${HUBBLE_ENV_FILE_PATH}"
+    echo "MEM_RESERVATION=${MEM_RESERVATION}" >> "${HUBBLE_ENV_FILE_PATH}"
 
     echo "-------------------------------- 您的配置信息 --------------------------------"
     echo "Warpcast FID：${HUB_OPERATOR_FID}"
     echo "ETH 主网 RPC 地址：${ETH_MAINNET_RPC_URL}"
     echo "Optimism L2 RPC 地址：${OPTIMISM_L2_RPC_URL}"
+    echo "MEM_RESERVATION 内存大小：${MEM_RESERVATION}GB"
     echo "------------------------------------ End -----------------------------------"
 }
 
