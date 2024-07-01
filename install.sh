@@ -71,6 +71,8 @@ function __env() {
       mkdir -p "${HUBBLE_HOME}"
     fi
 
+    cd "${HUBBLE_HOME}"
+
     if [[ -z "$HUB_OPERATOR_FID" ]]; then
         echo "❌ 您未指定 Warpcast ID，您可以在此链接处查看：https://warpcast.com/你的用户名"
         exit 1
