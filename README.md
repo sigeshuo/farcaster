@@ -37,3 +37,7 @@ farcaster down
 #查看日志
 farcaster logs
 ```
+
+# Telegram Group Chat
+
+[https://t.me/sigeshuo_group](https://t.me/sigeshuo_group)
