@@ -69,9 +69,8 @@ function __env() {
     if [[ ! -d "${HUBBLE_HOME}" ]]; then
       echo "⏳ 目录 ${HUBBLE_HOME} 不存在，正在创建 ..."
       mkdir -p "${HUBBLE_HOME}"
+      chmod 777 "${HUBBLE_HOME}"
     fi
-
-    cd "${HUBBLE_HOME}"
 
     if [[ -z "$HUB_OPERATOR_FID" ]]; then
         echo "❌ 您未指定 Warpcast ID，您可以在此链接处查看：https://warpcast.com/你的用户名"
@@ -131,7 +130,7 @@ chmod +x ${FARCASTER_COMMAND_FILE_PATH}
 function __download_hubble() {
     echo "⏳ 正在下载 hubble 脚本文件 ..."
 #    curl -s -o "${HUBBLE_FILE_PATH}" "https://raw.githubusercontent.com/sigeshuo1/hub-monorepo/@latest/scripts/hubble.sh?timestamp=$(date +%s)"
-    curl -s -o "${HUBBLE_FILE_PATH}" "https://raw.githubusercontent.com/sigeshuo1/hub-monorepo/main/scripts/hubble.sh?timestamp=$(date +%s)"
+    curl -s -o "${HUBBLE_FILE_PATH}" "https://raw.githubusercontent.com/sigeshuo1/hub-monorepo/@latest/scripts/hubble.sh?timestamp=$(date +%s)"
     if [ $? -eq 0 ]; then
       echo "✅ 文件已成功下载到 ${HUBBLE_FILE_PATH}！"
       chmod +x "${HUBBLE_FILE_PATH}"
