@@ -102,12 +102,14 @@ function __env() {
     echo "ETH_MAINNET_RPC_URL=${ETH_MAINNET_RPC_URL}" >> "${HUBBLE_ENV_FILE_PATH}"
     echo "OPTIMISM_L2_RPC_URL=${OPTIMISM_L2_RPC_URL}" >> "${HUBBLE_ENV_FILE_PATH}"
     echo "MEM_RESERVATION=${MEM_RESERVATION}" >> "${HUBBLE_ENV_FILE_PATH}"
+    echo "AGREE_NO_REWARDS_FOR_ME=true" >> "${HUBBLE_ENV_FILE_PATH}"
 
     echo "-------------------------------- 您的配置信息 --------------------------------"
     echo "Warpcast FID：${HUB_OPERATOR_FID}"
     echo "ETH 主网 RPC 地址：${ETH_MAINNET_RPC_URL}"
     echo "Optimism L2 RPC 地址：${OPTIMISM_L2_RPC_URL}"
     echo "MEM_RESERVATION 内存大小：${MEM_RESERVATION}GB"
+    echo "AGREE_NO_REWARDS_FOR_ME 同意没有奖励：是"
     echo "------------------------------------ End -----------------------------------"
 }
 
