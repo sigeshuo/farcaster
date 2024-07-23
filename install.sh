@@ -49,7 +49,7 @@ function __help() {
     echo "🛑 停止 Hubble 和 Grafana 面板：farcaster down"
     echo "❓ 查看帮助：farcaster help"
     echo "🌐 打开 Grafana 面板：http://localhost:3000"
-    echo "🗑️ 卸载安装：curl -s https://raw.githubusercontent.com/sigeshuo1/farcaster/main/install.sh | bash -s uninstall"
+    echo "🗑️ 卸载安装：curl -s https://raw.githubusercontent.com/sigeshuo/farcaster/main/install.sh | bash -s uninstall"
 
     for ((i=10; i>0; i--)); do
       echo "🎉 安装成功，安装程序将在 $i 秒后结束！"
@@ -131,8 +131,8 @@ chmod +x ${FARCASTER_COMMAND_FILE_PATH}
 
 function __download_hubble() {
     echo "⏳ 正在下载 hubble 脚本文件 ..."
-#    curl -s -o "${HUBBLE_FILE_PATH}" "https://raw.githubusercontent.com/sigeshuo1/hub-monorepo/@latest/scripts/hubble.sh?timestamp=$(date +%s)"
-    curl -s -o "${HUBBLE_FILE_PATH}" "https://raw.githubusercontent.com/sigeshuo1/hub-monorepo/@latest/scripts/hubble.sh?timestamp=$(date +%s)"
+#    curl -s -o "${HUBBLE_FILE_PATH}" "https://raw.githubusercontent.com/sigeshuo/hub-monorepo/@latest/scripts/hubble.sh?timestamp=$(date +%s)"
+    curl -s -o "${HUBBLE_FILE_PATH}" "https://raw.githubusercontent.com/sigeshuo/hub-monorepo/@latest/scripts/hubble.sh?timestamp=$(date +%s)"
     if [ $? -eq 0 ]; then
       echo "✅ 文件已成功下载到 ${HUBBLE_FILE_PATH}！"
       chmod +x "${HUBBLE_FILE_PATH}"
